@@ -50,6 +50,8 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+
         binding.textHome.setText("Weather data cannot be provided without your permission.")
         val root: View = binding.root
         val requestPermissionLauncher =
@@ -70,10 +72,10 @@ class HomeFragment : Fragment() {
                         }
                     }
 
-                    Log.w("best_location", bestLocation2?.toString() ?: "shits null");
+                    Log.w("best_location", bestLocation2?.toString() ?: "this is null");
                     Log.w("loll", "All is well");
-                    val mrkuk = "TY for permission Mr kuk's location is lat:${bestLocation2?.latitude.toString()} long:${bestLocation2?.longitude.toString()}"
-                    binding.textHome.setText(mrkuk)
+                    val theUser = "TY for permission your location is lat:${bestLocation2?.latitude.toString()} long:${bestLocation2?.longitude.toString()}"
+                    binding.textHome.setText(theUser)
 
                 } else {
                     // Explain to the user that the feature is unavailable because the
@@ -102,10 +104,10 @@ class HomeFragment : Fragment() {
                     }
                 }
 
-                Log.w("best_location", bestLocation?.toString() ?: "shits null");
+                Log.w("best_location", bestLocation?.toString() ?: "this is null");
                 Log.w("loll", "All is well");
                 // DOUBLE CHECK if bestLocation is not null
-                val mrkuk = "Mr kuk's location is lat:${bestLocation?.latitude.toString()} long:${bestLocation?.longitude.toString()}"
+                val theUser = "Your location is lat:${bestLocation?.latitude.toString()} long:${bestLocation?.longitude.toString()}"
 
                 runBlocking {
                     val withUnknownKeys = Json { ignoreUnknownKeys = true }
